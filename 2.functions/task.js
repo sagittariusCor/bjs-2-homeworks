@@ -54,4 +54,32 @@ function averageEvenElementsWorker(...arr) {
   return sumEvenElement / countEvenElement;
 }
 
-function makeWork(arrOfArr, func) {}
+function makeWork(arrOfArr, func) {
+  let maxWorkerResult = -Infinity;
+  for (let i = 0; i < arrOfArr.length; i++) {
+    let result = func(...arrOfArr[i]);
+    if (result > maxWorkerResult) {
+      maxWorkerResult = result;
+    }
+  }
+  return maxWorkerResult;
+}
+
+const arr = [
+  [10, 10, 11, 20, 10],
+  [67, 10, 2, 39, 88],
+  [72, 75, 51, 87, 43],
+  [30, 41, 55, 96, 62],
+];
+console.log(
+  `Насадка суммирования значений: ${makeWork(arr, summElementsWorker)}`,
+);
+console.log(
+  `Насадка разницы элементов: ${makeWork(arr, differenceMaxMinWorker)}`,
+);
+console.log(
+  `Насадка разницы чётных и нечётных элементов: ${makeWork(arr, differenceEvenOddWorker)}`,
+);
+console.log(
+  `Насадка среднего значения чётных элементов: ${makeWork(arr, averageEvenElementsWorker)}`,
+);
