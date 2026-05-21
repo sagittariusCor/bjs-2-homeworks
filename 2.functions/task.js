@@ -12,11 +12,34 @@ function getArrayParams(...arr) {
   return { min: min, max: max, avg: avg };
 }
 
-function summElementsWorker(...arr) {}
+function summElementsWorker(...arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+  sum = sum + arr[i]; 
+}
+  return sum;
+}
 
-function differenceMaxMinWorker(...arr) {}
+function differenceMaxMinWorker(...arr) {
+  if(arr.length === 0) return 0;
+  let min = Math.min(...arr);
+  let max = Math.max(...arr);
+  let difference = max - min;
+  return difference;
+}
 
-function differenceEvenOddWorker(...arr) {}
+function differenceEvenOddWorker(...arr) {
+  let sumEvenElement = 0;
+  let sumOddElement = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] % 2 === 0) {
+      sumEvenElement = sumEvenElement + arr[i];
+    } else {
+      sumOddElement = sumOddElement + arr[i];
+    }
+  }
+  return sumEvenElement - sumOddElement;
+}
 
 function averageEvenElementsWorker(...arr) {}
 
