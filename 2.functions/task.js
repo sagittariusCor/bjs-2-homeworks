@@ -9,7 +9,7 @@ function getArrayParams(...arr) {
   let avgString = avg.toFixed(2);
   let avgNumber = Number(avgString);
 
-  return { min: min, max: max, avg: avg };
+  return { min: min, max: max, avg: avgNumber };
 }
 
 function summElementsWorker(...arr) {
