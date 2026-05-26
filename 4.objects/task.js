@@ -8,7 +8,7 @@ let student = new Student('Tanya', 'female', 17);
 let student2 = new Student('Alex', 'male', 18); 
 
 Student.prototype.setSubject = function (subjectName) {
-  
+    this.subject = subjectName;
 }
 
 Student.prototype.addMarks = function (...marks) {
