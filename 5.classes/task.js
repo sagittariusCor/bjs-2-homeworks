@@ -92,4 +92,43 @@ class Library {
         return null;
     }
 }
+class Student{
+    constructor(name){
+        this.name = name;
+        this.marks = {};
+    }
+    addMark(mark, subject) {
+        if(mark < 2 || mark >5) {
+            console.log(`Ошибка: оценка ${mark} не добавлена.`);
+            return;
+        }
+        if(!this.marks[subject]) {
+            this.marks[subject] = [];
+        }
+        this.marks[subject].push(mark);
+    }
+
+    getAverageBySubject(subject) {
+        if(!this.marks[subject] || this.marks[subject].length === 0) {
+        return 0;
+        }
+
+        const sum = this.marks[subject].reduce((total, mark) => total + mark, 0);
+        return sum / this.marks[subject].length;
+    }
+
+    getAverage() {
+        const subject = Object.keys(this.marks);
+        if(subject.length === 0) {
+            return 0;
+        }
+
+        let totalAverage = 0;
+        for(const subject of subjects) {
+            totalAverage += this.getAverageBySubject(subject);
+        }
+        return totalAverage / subject.length;
+    }
+}
+
 
