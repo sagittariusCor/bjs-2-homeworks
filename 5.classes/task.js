@@ -124,8 +124,8 @@ class Student{
         }
 
         let totalAverage = 0;
-        for(const subject of subjects) {
-            totalAverage += this.getAverageBySubject(subject);
+        for(const sub of subject) {
+            totalAverage += this.getAverageBySubject(sub);
         }
         return totalAverage / subject.length;
     }
